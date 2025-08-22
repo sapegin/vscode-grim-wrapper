@@ -33,17 +33,17 @@ const multilineSuffixes = ['*/', '*/}'];
 
 // Comment prefixes: //, #, *, /**, /*, {/*
 const prefixRegExp = new RegExp(
-  `^\\s*(?:${regExpChoices(allPrefixes)})[ \\t]*`
+  `^\\s*(?:${regExpChoices(allPrefixes)})[ \\t]*`,
 );
 
 // Multiline comment prefix
 const multilinePrefixRegExp = new RegExp(
-  `^\\s*(?:${regExpChoices(multilinePrefixes)})[ \\t]*`
+  `^\\s*(?:${regExpChoices(multilinePrefixes)})[ \\t]*`,
 );
 
 // Comment suffix (can be only on multiline comments)
 const suffixRegExp = new RegExp(
-  `\\s*(?:${regExpChoices(multilineSuffixes)})\\s*$`
+  `\\s*(?:${regExpChoices(multilineSuffixes)})\\s*$`,
 );
 
 // List item markers: -, *, - [ ], - [x], etc.
@@ -271,7 +271,7 @@ export function wrapListItem(chunk: string, maxLength: number) {
   const formattedLines = lines.map((line, index) =>
     index === 0
       ? `${prefix}${line.replaceAll(/^@+/g, '')}`
-      : `${' '.repeat(indentLength)}${line}`
+      : `${' '.repeat(indentLength)}${line}`,
   );
 
   return formattedLines;
