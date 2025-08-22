@@ -1,0 +1,99 @@
+{
+  "name": "grim-wrapper",
+  "displayName": "Grim Wrapper",
+  "publisher": "sapegin",
+  "author": {
+    "name": "Artem Sapegin"
+  },
+  "description": "Minimalist comment, Markdown, and plain text wrapping",
+  "icon": "images/icon.png",
+  "version": "1.0.0",
+  "engines": {
+    "vscode": "^1.75.0"
+  },
+  "categories": [
+    "Formatters"
+  ],
+  "galleryBanner": {
+    "color": "#27365a",
+    "theme": "dark"
+  },
+  "keywords": [
+    "comment",
+    "wrap",
+    "wrapping",
+    "paragraph"
+  ],
+  "homepage": "https://github.com/sapegin/vscode-grim-wrapper",
+  "bugs": {
+    "url": "https://github.com/sapegin/vscode-grim-wrapper/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sapegin/vscode-grim-wrapper"
+  },
+  "sponsor": {
+    "url": "https://www.buymeacoffee.com/sapegin"
+  },
+  "license": "MIT",
+  "main": "out/extension.js",
+  "activationEvents": [
+    "onLanguage"
+  ],
+  "capabilities": {
+    "untrustedWorkspaces": {
+      "supported": true
+    }
+  },
+  "contributes": {
+    "commands": [
+      {
+        "command": "grimWrapper.wrapText",
+        "title": "Grim Wrapper: rewrap comment or text",
+        "enablement": "!editorReadonly"
+      }
+    ],
+    "configuration": {
+      "title": "Grim Wrapper",
+      "properties": {
+        "grimWrapper.maxLength": {
+          "scope": "language-overridable",
+          "type": "number",
+          "default": 80,
+          "description": "Controls maximum length of lines in characters."
+        }
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "rm -rf out && npm run esbuild-base -- --minify",
+    "esbuild-base": "esbuild ./src/extension.ts --bundle --outfile=out/extension.js --external:vscode --format=cjs --platform=node",
+    "esbuild": "npm run esbuild-base -- --sourcemap",
+    "esbuild-watch": "npm run esbuild-base -- --sourcemap --watch",
+    "watch": "npm run esbuild-watch",
+    "lint": "eslint . --cache --fix",
+    "format": "prettier --log-level warn --write \"**/*.{js,mjs,csj,ts,tsx,md}\"",
+    "pretest": "npm run lint",
+    "test": "npm run esbuild-base && tsc --noEmit",
+    "posttest": "npm run format",
+    "publish": "vsce publish",
+    "publish:ovsx": "npx ovsx publish",
+    "prepare": "husky"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.3",
+    "@types/vscode": "^1.75.0",
+    "@vscode/vsce": "^3.6.0",
+    "esbuild": "^0.25.9",
+    "eslint": "^9.33.0",
+    "eslint-config-tamia": "^9.2.3",
+    "husky": "^9.1.7",
+    "lint-staged": "^16.1.5",
+    "prettier": "^3.6.2",
+    "typescript": "^5.9.2"
+  },
+  "lint-staged": {
+    "*.{js,mjs,cjs,ts,tsx,md}": "prettier --write",
+    "*.{js,mjs,cjs,ts,tsx}": "eslint --cache --fix"
+  }
+}
