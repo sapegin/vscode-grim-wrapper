@@ -2,6 +2,7 @@ import { Position, Range, type TextEditor } from 'vscode';
 import { logMessage } from './debug';
 // TODO: Import grim-wrapper from npm
 import {
+  isComment,
   isCommentBreak,
   isCommentEnd,
   isCommentStart,
@@ -9,10 +10,24 @@ import {
 } from './lib/grim-wrapper';
 import type { ExtensionProperties } from './types';
 
+// We use two methods of detecting paragraphs:
+// - Code comments:
+//   - any lines between comment start/end (including)
+//   - "empty" line (such as `*` or `//`)
+// - Plain text:
+//   - any lines between empty lines
+const PLAIN_TEXT_LANGUAGES = ['markdown', 'plaintext'];
+
 /**
  * Return the range for the comment block under cursor.
  */
 function getCommentBlockRange({ document, selection }: TextEditor) {
+  const isPlainText = PLAIN_TEXT_LANGUAGES.includes(document.languageId);
+
+  logMessage(
+    `Switching to ${isPlainText ? 'plain text' : 'code comment'} mode for ${document.languageId} language`,
+  );
+
   // Walk up
   let startLine = selection.start.line;
   while (true) {
@@ -21,7 +36,11 @@ function getCommentBlockRange({ document, selection }: TextEditor) {
       // We found the first line of the comment
       break;
     }
-    if (lineText === '' || isCommentBreak(lineText)) {
+    if (
+      isCommentBreak(lineText) || isPlainText
+        ? lineText === ''
+        : isComment(lineText) === false
+    ) {
       // We found paragraph break, go one step back, as we don't want to include the "empty" line
       startLine++;
       break;
@@ -41,7 +60,11 @@ function getCommentBlockRange({ document, selection }: TextEditor) {
       // We found the last line of the comment
       break;
     }
-    if (lineText === '' || isCommentBreak(lineText)) {
+    if (
+      isCommentBreak(lineText) || isPlainText
+        ? lineText === ''
+        : isComment(lineText) === false
+    ) {
       // We found paragraph break, go one step back, as we don't want to include the "empty" line
       endLine--;
       break;
