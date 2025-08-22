@@ -37,9 +37,9 @@ function getCommentBlockRange({ document, selection }: TextEditor) {
       break;
     }
     if (
-      isCommentBreak(lineText) || isPlainText
+      isPlainText
         ? lineText === ''
-        : isComment(lineText) === false
+        : isCommentBreak(lineText) || isComment(lineText) === false
     ) {
       // We found paragraph break, go one step back, as we don't want to include the "empty" line
       startLine++;
@@ -61,9 +61,9 @@ function getCommentBlockRange({ document, selection }: TextEditor) {
       break;
     }
     if (
-      isCommentBreak(lineText) || isPlainText
+      isPlainText
         ? lineText === ''
-        : isComment(lineText) === false
+        : isCommentBreak(lineText) || isComment(lineText) === false
     ) {
       // We found paragraph break, go one step back, as we don't want to include the "empty" line
       endLine--;

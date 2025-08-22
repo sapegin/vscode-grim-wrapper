@@ -97,3 +97,28 @@ console.log();
 // Main navigation landmark should be present on all screen sizes. However, the
 // location depends on the screen size:
 console.log();
+
+// -----------------------------------------------------------------------------
+
+/**
+ * Main navigation landmark should be present on all screen sizes. However, the location depends on the screen size.
+ *
+ * Examples:
+ * - `/* foo` → true
+ * - ` * foo` → false
+ * - `// foo` → false
+ */
+console.log();
+
+// →
+
+/**
+ * Main navigation landmark should be present on all screen sizes. However, the
+ * location depends on the screen size.
+ *
+ * Examples:
+ * - `/* foo` → true
+ * - ` * foo` → false
+ * - `// foo` → false
+ */
+console.log();
