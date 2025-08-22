@@ -41,7 +41,8 @@ function getCommentBlockRange({ document, selection }: TextEditor) {
         ? lineText === ''
         : isCommentBreak(lineText) || isComment(lineText) === false
     ) {
-      // We found paragraph break, go one step back, as we don't want to include the "empty" line
+      // We found paragraph break, go one step back, as we don't want to include
+      // the "empty" line
       startLine++;
       break;
     }
@@ -65,7 +66,8 @@ function getCommentBlockRange({ document, selection }: TextEditor) {
         ? lineText === ''
         : isCommentBreak(lineText) || isComment(lineText) === false
     ) {
-      // We found paragraph break, go one step back, as we don't want to include the "empty" line
+      // We found paragraph break, go one step back, as we don't want to include
+      // the "empty" line
       endLine--;
       break;
     }
