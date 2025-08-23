@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.0.4
+
+- Don't publish unnecessary files with the extension
+
 ## 1.0.3
 
 - Support HTML comments
