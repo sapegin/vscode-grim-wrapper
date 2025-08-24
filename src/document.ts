@@ -97,6 +97,11 @@ export function wrapText(editor: TextEditor, config: ExtensionProperties) {
   const textWrapped = wrapComment(text, config.maxLength);
   logMessage(`Wrapped comment block:\n${textWrapped}`);
 
+  if (text === textWrapped) {
+    // Skip document update if there was no changes to the text
+    return;
+  }
+
   editor.edit((editBuilder) => {
     editBuilder.replace(range, textWrapped);
   });

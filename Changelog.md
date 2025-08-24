@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.0.5
+
+- Skip document update if there was no changes to the text
+
 ## 1.0.4
 
 - Don't publish unnecessary files with the extension
@@ -9,7 +13,7 @@
 - Support HTML comments
 - Support ordered lists
 - Support nested lists
-- Treat TODO: and other such markers as new paragraph to avoid squishing them into a single line. However, don't indent them like JSDoc (`@todo`).
+- Treat `TODO:` and other such markers as new paragraph to avoid squishing them into a single line. However, don't indent them like JSDoc (`@todo`)
 
 ## 1.0.2
 
