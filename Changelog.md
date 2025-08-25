@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.0.6
+
+- Correct indentation in multiline `{/* ... */}` comments
+
 ## 1.0.5
 
 - Skip document update if there was no changes to the text
