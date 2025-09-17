@@ -81,7 +81,7 @@
     "prepare": "husky"
   },
   "dependencies": {
-    "grim-wrapper": "^1.0.6"
+    "grim-wrapper": "^1.0.7"
   },
   "devDependencies": {
     "@types/node": "^22.10.3",
