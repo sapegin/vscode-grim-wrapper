@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.1.0
+
+- [Change formatting of JSX comments](https://github.com/sapegin/grim-wrapper/commit/0fffbb90402ccd3f9720ea0a125d9dbe58797f29).
+
 ## 1.0.6
 
 - Skip wrapping short comments only when they are single-line.
