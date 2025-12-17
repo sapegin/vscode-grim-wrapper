@@ -1,0 +1,8 @@
+@media print {
+  /* there are no JS events on autofill,
+  so we have to simulate the change on the adjacent input label,
+  see the styling in the FormInput component */
+  input:-webkit-autofill + label {
+    color: salmon;
+  }
+}
