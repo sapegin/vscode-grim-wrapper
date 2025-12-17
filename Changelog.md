@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.2.0
+
+- [Simpler multiline comment formatting: only add `*` prefixes for JSDoc (`/**` comments), and indent `/*` and JSX comments using two spaces instead](https://github.com/sapegin/grim-wrapper/commit/73a03a7971b31c0b6a818ca626ccbc6b80513c2e)
+- Improve wrapping of comments with very long words
+
 ## 1.1.0
 
 - [Change formatting of JSX comments](https://github.com/sapegin/grim-wrapper/commit/0fffbb90402ccd3f9720ea0a125d9dbe58797f29).
