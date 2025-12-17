@@ -1,5 +1,3 @@
-import { Position, Range, type TextEditor } from 'vscode';
-import { logMessage } from './debug';
 import {
   isComment,
   isCommentBreak,
@@ -7,6 +5,8 @@ import {
   isCommentStart,
   wrapComment,
 } from 'grim-wrapper';
+import { Position, Range, type TextEditor } from 'vscode';
+import { logMessage } from './debug';
 import type { ExtensionProperties } from './types';
 
 // We use two methods of detecting paragraphs:

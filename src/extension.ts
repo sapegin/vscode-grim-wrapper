@@ -1,12 +1,12 @@
-import { commands, workspace, type ExtensionContext } from 'vscode';
-import { wrapText } from './document';
+import { commands, type ExtensionContext, workspace } from 'vscode';
 import { logMessage } from './debug';
+import { wrapText } from './document';
 import type { ExtensionProperties } from './types';
 
 function getExtensionProperties(): ExtensionProperties {
   const { maxLength } = workspace.getConfiguration('grimWrapper');
   return {
-    maxLength,
+    maxLength: Number(maxLength) || 80,
   };
 }
 
