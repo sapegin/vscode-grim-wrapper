@@ -1,5 +1,7 @@
 # Grim Wrapper 🪦
 
+**[Repository moved](https://github.com/sapegin/raccoon-vscode/tree/main/extensions/grim-wrapper)**
+
 Minimalist comment, Markdown, and plain text wrapping.
 
 **Install from [Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=sapegin.grim-wrapper) or [Open VSX Registry](https://open-vsx.org/extension/sapegin/grim-wrapper)**
